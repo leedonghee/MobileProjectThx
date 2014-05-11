@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageViewProfile"
+            android:layout_width="88dp"
+            android:layout_height="68dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/register_add_btn" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:hint="제목을 입력하려면 클릭하세요."
+                android:textColor="#040404"
+                android:textSize="10dip"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/desingerID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:focusable="false"
+                android:text="DesignerID"
+                android:textColor="#343434"
+                android:textSize="10dip" />
+
+            <RatingBar
+                android:id="@+id/rtbProductRating"
+                style="@style/foodRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:isIndicator="true"
+                android:numStars="5" />
+
+            <TextView
+                android:id="@+id/textViewCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:focusable="false"
+                android:text="Free"
+                android:textColor="#343434"
+                android:textSize="10dip" />
+        </LinearLayout>
+    </LinearLayout>
+            
+	<RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="20dp"            
+            android:text="Image list"
+            android:textColor="#F34022" />
+
+    </RelativeLayout>
+            
+            <View style="@style/profileLine" />
+            
+	<LinearLayout 
+	    android:orientation="vertical" 
+	    android:layout_height="match_parent" 
+	    android:layout_width="match_parent">
+
+	<android.support.v4.view.ViewPager 
+	    android:background="@drawable/register_below_bg"
+	    android:layout_height="0dp" 
+	    android:layout_width="fill_parent" 
+	    android:id="@+id/pager2" 
+	    android:layout_weight="1"/>
+
+	<com.ssm.quadrah.diymarket.content.circle.CirclePageIndicator 
+	    android:layout_height="wrap_content" 
+	    android:layout_width="fill_parent" 
+	    android:padding="10dip" 
+	    android:background="@color/gray"
+	    android:id="@+id/pagerIndicator1"/>
+
+	</LinearLayout>
+	
+</LinearLayout>

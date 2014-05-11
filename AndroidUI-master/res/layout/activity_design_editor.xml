@@ -1,0 +1,354 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DesignEditor" >
+
+    <FrameLayout
+        android:id="@+id/spenViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/spenViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/spen_page"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"                                 
+            android:textSize="24sp"
+            android:textColor="#FFAAAAAA"
+            
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/currentTool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector_tool_bg"
+                android:src="@drawable/selector_pen" />
+
+            <ImageView
+                android:id="@+id/currentColor"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/cur_col"
+                android:scaleType="fitStart"/>
+            
+            
+            <ImageView
+                android:id="@+id/initZoomBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector_tool_bg"
+                android:src="@drawable/selector_initzoom" />
+
+            <ImageView
+                android:id="@+id/navigatorBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/selector_tool_bg"
+                android:src="@drawable/selector_minimap" />
+
+        	<FrameLayout
+        		android:id="@+id/navigatorView"
+                android:layout_width="90dp"
+                android:layout_height="160dp"
+	            android:layout_above="@+id/navigatorBtn"
+	            android:layout_alignRight="@+id/navigatorBtn"
+	            android:visibility="invisible" >
+	            
+	            <ImageView
+        			android:id="@+id/navigatorImage"
+        			android:layout_width="match_parent"
+        			android:layout_height="match_parent"
+					android:scaleType="fitEnd"
+                	android:background="@drawable/navi_bg"/>
+	            
+	            <ImageView
+        			android:id="@+id/navigatorPan"
+					android:scaleType="fitEnd"
+        			android:layout_width="match_parent"
+        			android:layout_height="match_parent"/>
+	            	            
+        	</FrameLayout>
+        	    
+        
+
+            <ImageView
+                android:id="@+id/redoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/undoBtn"
+                android:layout_toLeftOf="@+id/navigatorBtn"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/selector_tool_bg"
+                android:src="@drawable/selector_redo" />
+
+            <ImageView
+                android:id="@+id/undoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/navigatorBtn"
+                android:layout_toRightOf="@+id/toolBoxBtn"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/selector_tool_bg"
+                android:src="@drawable/selector_undo" />
+            
+            <ImageView
+                android:id="@+id/toolBoxBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/selector_tool_bg"
+                android:src="@drawable/selector_toolbox" />
+            
+            <FrameLayout
+                android:id="@+id/colorSettingView"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="70dp" >
+	            <ImageView
+	                android:id="@+id/colorSelectionView"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/color_picker" />
+	            <ImageView
+	                android:id="@+id/colorSelectorView"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/color_selector" />	            
+        	</FrameLayout>
+            
+            <!-- Height 중앙 혹은 toolBoxBtn 기준 -->
+            <LinearLayout
+                android:id="@+id/toolBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:visibility="invisible"
+                android:orientation="vertical" >
+                <ImageView
+                    android:id="@+id/penBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_tool_bg"
+                    android:src="@drawable/selector_pen" />
+
+                <ImageView
+                    android:id="@+id/eraserBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_tool_bg"
+                    android:src="@drawable/selector_eraser" />
+                
+                <ImageView
+                    android:id="@+id/fillToolBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_tool_bg"
+                    android:src="@drawable/selector_filltool" />
+		
+		        <ImageView
+		            android:id="@+id/strokeObjBtn"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_margin="1dip"
+		            android:layout_weight="1"
+		            android:background="@drawable/selector_tool_bg"
+		            android:src="@drawable/selector_gesture" />
+		                
+                <ImageView
+                    android:id="@+id/imgObjBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_tool_bg"
+                    android:src="@drawable/selector_image" />
+                
+                <ImageView
+                    android:id="@+id/textObjBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_tool_bg"
+                    android:src="@drawable/selector_text" />
+                
+				<ImageView
+            		android:id="@+id/selectionBtn"
+            		android:layout_width="match_parent"
+            		android:layout_height="wrap_content"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:background="@drawable/selector_tool_bg"
+            		android:src="@drawable/selector_singleselect" />
+                
+                <ImageView
+                    android:id="@+id/magicWandToolBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_tool_bg"
+                    android:src="@drawable/selector_magic_wand" />
+		
+				<ImageView
+            		android:id="@+id/layerBtn"
+            		android:layout_width="match_parent"
+            		android:layout_height="wrap_content"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:background="@drawable/selector_tool_bg"
+            		android:src="@drawable/selector_layer" />
+                        
+				
+				<ImageView
+            		android:id="@+id/settingBtn"
+            		android:layout_width="match_parent"
+            		android:layout_height="wrap_content"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:background="@drawable/selector_tool_bg"
+            		android:src="@drawable/selector_setting" />
+				
+            </LinearLayout>
+
+        	<FrameLayout
+        		android:id="@+id/fillToolSettingView"
+	            android:layout_width="160dp"
+	            android:layout_height="80dp"
+	            android:visibility="invisible" >
+	            
+	            <ImageView
+        			android:layout_width="match_parent"
+        			android:layout_height="match_parent"
+	                android:src="@drawable/fill_tool_setting" />
+	            
+	            <ImageView
+        			android:id="@+id/fillToolSlider"
+        			android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+	                android:src="@drawable/fill_tool_slider" />
+        	</FrameLayout>
+
+        	<FrameLayout
+        		android:id="@+id/magicWandToolSettingView"
+	            android:layout_width="160dp"
+	            android:layout_height="80dp"
+	            android:visibility="invisible" >
+	            
+	            <ImageView
+        			android:layout_width="match_parent"
+        			android:layout_height="match_parent"
+	                android:src="@drawable/magic_wand_tool_setting" />
+	            
+	            <ImageView
+        			android:id="@+id/magicWandToolSlider"
+        			android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+	                android:src="@drawable/magic_wand_tool_slider" />
+        	</FrameLayout>
+        	
+        	<FrameLayout
+        		android:id="@+id/strokeToolSettingView"
+	            android:layout_width="160dp"
+	            android:layout_height="80dp"
+	            android:visibility="invisible" >
+        	</FrameLayout>            
+            
+        	<LinearLayout
+        		android:id="@+id/layerSettingView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:orientation="horizontal" >
+	            <ImageView
+        			android:id="@+id/layerDecBtn"
+        			android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:background="@drawable/selector_tool_bg"
+            		android:src="@drawable/selector_left" />
+	            <TextView
+        			android:id="@+id/curLayer"
+        			android:layout_width="60dp"
+        			android:layout_height="match_parent"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:gravity="center"
+            		android:background="@drawable/selector_tool_bg" />
+	            <ImageView
+        			android:id="@+id/layerIncBtn"
+        			android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:background="@drawable/selector_tool_bg"
+            		android:src="@drawable/selector_addlayer" />
+	            
+        	</LinearLayout>
+	            
+        	<LinearLayout
+        		android:id="@+id/settingIconList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:orientation="horizontal" >
+	            
+	            <ImageView
+        			android:id="@+id/saveBtn"
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+            		android:layout_margin="1dip"
+            		android:layout_weight="1"
+            		android:background="@drawable/selector_tool_bg"
+            		android:src="@drawable/selector_save" />
+        	</LinearLayout>
+        </RelativeLayout>
+
+        	    
+    </FrameLayout>
+</LinearLayout>
+

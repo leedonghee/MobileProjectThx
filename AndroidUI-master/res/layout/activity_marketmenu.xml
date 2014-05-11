@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/marketmenu_bg" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="20dp"            
+            android:text="Market for"
+            android:textColor="#F34022" />
+
+    </RelativeLayout>
+
+    
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/relativeLayout1"
+        android:orientation="vertical" >
+
+        <View style="@style/profileLine" />
+
+        <Button
+            android:id="@+id/btnLayout"            
+            android:background="@drawable/btn_selector"			   
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+          <View style="@style/itempackage" />
+
+        <Button
+            android:id="@+id/btnBackground"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/btn_menu_background_selector"
+            android:layout_height="wrap_content"/>
+         <View style="@style/itempackage" />
+         
+          <Button
+            android:id="@+id/btnSticker"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/btn_menu_stickermarket_selector"
+            android:layout_height="wrap_content"/>
+         <View style="@style/itempackage" />
+         
+          <Button
+            android:id="@+id/btnFrame"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/btn_menu_framemarket_selector"
+            android:layout_height="wrap_content"/>
+         <View style="@style/itempackage" />
+         
+          <Button
+            android:id="@+id/btnMy"
+            android:layout_width="wrap_content"
+             android:background="@drawable/btn_menu_mypage_selector"
+            android:layout_height="wrap_content"/>
+         <View style="@style/itempackage" />
+         
+
+    </LinearLayout>
+
+</RelativeLayout>
